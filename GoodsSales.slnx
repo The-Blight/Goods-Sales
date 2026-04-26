@@ -1,2 +1,4 @@
 <Solution>
+  <Project Path="GoodsSales.Core/GoodsSales.Core.csproj" />
+  <Project Path="GoodsSales.Infrastructure/GoodsSales.Infrastructure.csproj" />
 </Solution>
