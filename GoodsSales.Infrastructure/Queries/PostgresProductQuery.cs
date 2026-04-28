@@ -8,9 +8,10 @@ using Npgsql;
 
 namespace GoodsSales.Infrastructure.Queries;
 
-public class ProductQuery(IDatabaseContext databaseContext) : IProductQueries
+public class PostgresProductQuery<TConnection>(IDatabaseContext<NpgsqlConnection> databaseContext)
+    where TConnection : IDbConnection
 {
-    private readonly IDatabaseContext _databaseContext = databaseContext;
+    private readonly IDatabaseContext<NpgsqlConnection> _databaseContext = databaseContext;
 
     public Person? GetPersonById(int id)
     {
@@ -29,7 +30,7 @@ public class ProductQuery(IDatabaseContext databaseContext) : IProductQueries
             FROM table_persons as p
             WHERE p.id = @id; 
             """,
-            connection as NpgsqlConnection
+            connection
         );
 
         using var reader = command.ExecuteReader();
@@ -38,7 +39,7 @@ public class ProductQuery(IDatabaseContext databaseContext) : IProductQueries
 
         return new Person()
         {
-            Id = reader.GetOrdinal("id"),
+            Id = reader.GetInt32("id"),
             FirstName = reader.GetString("first_name"),
             Patronymic = reader.GetString("patronymic"),
             LastName = reader.GetString("last_name"),

@@ -5,7 +5,7 @@ using Npgsql;
 
 namespace GoodsSales.Infrastructure.DatabaseContexts;
 
-public class PostgresContext : IDatabaseContext
+public class PostgresContext : IDatabaseContext<NpgsqlConnection>
 {
     private readonly string _connectionString;
 
@@ -14,6 +14,5 @@ public class PostgresContext : IDatabaseContext
         _connectionString = connectionString;
     }
 
-    public IDbConnection CreateConnection() => new NpgsqlConnection(_connectionString);
-    
+    public NpgsqlConnection CreateConnection() => new NpgsqlConnection(_connectionString);
 }

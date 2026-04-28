@@ -2,7 +2,7 @@
 
 namespace GoodsSales.Core.Interfaces;
 
-public interface IDatabaseContext
+public interface IDatabaseContext<out TConnection>
 {
-    IDbConnection CreateConnection();
+    TConnection CreateConnection();
 }
