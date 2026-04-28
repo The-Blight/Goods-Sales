@@ -11,7 +11,6 @@ public record Person
     public required DateOnly DateOfBirth { get; init; }
     public required bool IsDeleted { get; init; }
 
-
     public override string ToString()
     {
         return Patronymic is null
