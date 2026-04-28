@@ -1,22 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <OutputType>Exe</OutputType>
         <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="Migrations\"/>
+      <ProjectReference Include="..\GoodsSales.Infrastructure\GoodsSales.Infrastructure.csproj" />
     </ItemGroup>
     
-    <ItemGroup>
-      <PackageReference Include="Npgsql" Version="10.0.2" />
-    </ItemGroup>
-    
-    <ItemGroup>
-      <ProjectReference Include="..\GoodsSales.Core\GoodsSales.Core.csproj" />
-    </ItemGroup>
-    
-
 </Project>

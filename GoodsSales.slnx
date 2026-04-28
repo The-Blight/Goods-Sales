@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="GoodsSales.ConsoleApplication/GoodsSales.ConsoleApplication.csproj" />
   <Project Path="GoodsSales.Core/GoodsSales.Core.csproj" />
   <Project Path="GoodsSales.Infrastructure/GoodsSales.Infrastructure.csproj" />
 </Solution>
