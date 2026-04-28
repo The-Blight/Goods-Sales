@@ -9,10 +9,13 @@ public record Person
     public string? Patronymic { get; init; }
     public required string LastName { get; init; }
     public required DateOnly DateOfBirth { get; init; }
+    public required bool IsDeleted { get; init; }
 
 
     public override string ToString()
     {
-        return $"{Id} {FirstName} {Patronymic} {LastName} {DateOfBirth}";
+        return Patronymic is null
+            ? $"{Id} {FirstName} {LastName} {DateOfBirth} {IsDeleted}"
+            : $"{Id} {FirstName} {Patronymic} {LastName} {DateOfBirth} {IsDeleted}";
     }
 }

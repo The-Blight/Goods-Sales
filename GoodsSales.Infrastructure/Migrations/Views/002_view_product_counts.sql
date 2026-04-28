@@ -1,4 +1,5 @@
-﻿CREATE OR REPLACE VIEW view_product_counts AS
+﻿DROP VIEW IF EXISTS view_product_counts;
+CREATE OR REPLACE VIEW view_product_counts AS
 SELECT products.name,
        warehouse.quantity_in_stock
 FROM table_warehouses as warehouse

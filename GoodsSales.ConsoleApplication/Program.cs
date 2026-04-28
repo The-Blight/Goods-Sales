@@ -1,18 +1,26 @@
 ﻿using System;
 using System.Data;
-using GoodsSales.Core.Interfaces;
 using GoodsSales.Infrastructure.DatabaseContexts;
 using GoodsSales.Infrastructure.Queries;
-using Npgsql;
 
 
 const string connectionString =
     "Host=localhost;Port=5430;Database=postgres;Username=postgres;Password=1234";
 
 
-var context = new PostgresLazyContext(connectionString);
-var query = new PostgresProductQuery<IDbConnection>(context);
-var person = query.GetPersonById(2); 
+try
+{
+    var context = new PostgresLazyContext(connectionString);
+    var query = new PostgresProductQuery<IDbConnection>(context);
+    var person = query.GetPersonById(1);
+    var total = query.GetTotalSales();
+    var productCounts = query.GetProductsCount(); 
 
-Console.WriteLine(person.ToString());
-
+    Console.WriteLine(person.ToString());
+    total.ForEach(x => Console.WriteLine(x.ToString())); 
+    productCounts.ForEach(p => Console.WriteLine(p.ToString()));
+}
+catch (Exception e)
+{
+    Console.WriteLine($"Исключение: {e.Message} ");
+}

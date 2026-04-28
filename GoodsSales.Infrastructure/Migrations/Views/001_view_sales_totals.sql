@@ -11,6 +11,6 @@ SELECT sales_item.sale_id,
 FROM table_sales_item as sales_item
          JOIN table_sales sales ON sales_item.sale_id = sales.id
          JOIN table_persons person ON person.id = sales.person_id
-GROUP BY sales_item.sale_id, person.first_name, person.patronymic,  person.last_name
+GROUP BY sales_item.sale_id, person.first_name, person.patronymic, person.last_name
 
 

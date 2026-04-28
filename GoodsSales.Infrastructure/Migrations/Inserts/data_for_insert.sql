@@ -1,8 +1,8 @@
-INSERT INTO table_persons (first_name, patronymic, last_name, date_of_birth)
+INSERT INTO table_persons (first_name, patronymic, last_name, date_of_birth, is_deleted)
 VALUES
-    ('Иван', 'Иванович', 'Иванов', '1990-05-15'),
-    ('Мария', 'Сергеевна', 'Петрова', '1985-11-22'),
-    ('Алексей', NULL, 'Смирнов', '1995-02-10');
+    ('Иван', 'Иванович', 'Иванов', '1990-05-15', FALSE),
+    ('Мария', 'Сергеевна', 'Петрова', '1985-11-22', FALSE),
+    ('Алексей', NULL, 'Смирнов', '1995-02-10', TRUE);
 
 
 
